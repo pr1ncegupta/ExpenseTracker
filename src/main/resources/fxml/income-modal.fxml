@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.expensetracker.controller.IncomeModalController">
+   <padding>
+      <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+   </padding>
+   
+   <!-- Modal Title -->
+   <Label fx:id="titleLabel" text="Add New Income" styleClass="modal-title">
+      <font>
+         <Font name="System Bold" size="24.0" />
+      </font>
+      <VBox.margin>
+         <Insets bottom="25.0" />
+      </VBox.margin>
+   </Label>
+   
+   <!-- Form Fields -->
+   <GridPane hgap="20.0" vgap="15.0">
+      <columnConstraints>
+         <ColumnConstraints hgrow="NEVER" minWidth="120.0" />
+         <ColumnConstraints hgrow="ALWAYS" minWidth="250.0" />
+      </columnConstraints>
+      
+      <!-- Amount Field -->
+      <Label text="Amount *" styleClass="field-label" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+      <TextField fx:id="amountField" promptText="Enter amount" styleClass="form-field" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <!-- Source Field -->
+      <Label text="Source *" styleClass="field-label" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+      <ComboBox fx:id="sourceComboBox" maxWidth="1.7976931348623157E308" promptText="Select income source" styleClass="form-field" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      
+      <!-- Date Field -->
+      <Label text="Date *" styleClass="field-label" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+      <DatePicker fx:id="datePicker" maxWidth="1.7976931348623157E308" styleClass="form-field" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      
+      <VBox.margin>
+         <Insets bottom="25.0" />
+      </VBox.margin>
+   </GridPane>
+   
+   <!-- Required Fields Note -->
+   <Label text="* Required fields" styleClass="required-note">
+      <VBox.margin>
+         <Insets bottom="25.0" />
+      </VBox.margin>
+   </Label>
+   
+   <!-- Action Buttons -->
+   <HBox alignment="CENTER_RIGHT" spacing="15.0">
+      <Button fx:id="cancelButton" onAction="#handleCancel" styleClass="secondary-button" text="Cancel" />
+      <Button fx:id="saveButton" onAction="#handleSave" styleClass="primary-button" text="Save" />
+   </HBox>
+</VBox>

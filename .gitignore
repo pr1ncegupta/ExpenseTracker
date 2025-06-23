@@ -1,0 +1,87 @@
+# Maven build directory
+target/
+
+# Compiled class files
+*.class
+
+# Log files
+*.log
+logs/
+
+# Package files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Documentation files (as requested)
+docs/
+documentation/
+javadoc/
+
+# Backup files
+*.bak
+*.backup
+*~
+*.swp
+*.tmp
+.*.sw?
+*.old
+
+# IDE - IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# IDE - Eclipse
+.classpath
+.project
+.settings/
+bin/
+.metadata/
+
+# IDE - VS Code
+.vscode/
+*.code-workspace
+
+# IDE - NetBeans
+nbproject/
+nbactions.xml
+nb-configuration.xml
+build/
+nbbuild/
+dist/
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# JavaFX specific
+.scene-builder/
+
+# Debug files
+*.stackdump
+hs_err_pid*
+
+# Other
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Keep docs directory structure but ignore contents
+# If you want to keep the structure but not the files, uncomment these lines:
+# !docs/
+# docs/*
+# !docs/.gitkeep

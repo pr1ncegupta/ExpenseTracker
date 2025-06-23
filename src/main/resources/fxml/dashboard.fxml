@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.expensetracker.controller.DashboardController">
+   <top>
+      <!-- Header Section -->
+      <HBox alignment="CENTER_LEFT" spacing="20.0" styleClass="header">
+         <padding>
+            <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+         </padding>
+           <!-- Navigation Tabs -->
+         <HBox alignment="CENTER_LEFT" spacing="30.0">
+            <Label fx:id="dashboardTab" text="Dashboard" styleClass="nav-tab, nav-tab-active" onMouseClicked="#handleTabClick" />
+            <Label fx:id="expensesTab" text="See Full Expenses" styleClass="nav-tab" onMouseClicked="#handleTabClick" />
+            <Label fx:id="incomeTab" text="See Full Income" styleClass="nav-tab" onMouseClicked="#handleTabClick" />
+         </HBox>
+           <!-- Spacer -->
+         <Region HBox.hgrow="ALWAYS" />
+           <!-- Add Income Button -->         <Button fx:id="addIncomeButton" onAction="#handleAddIncome" styleClass="secondary-button" text="Add Income">
+            <tooltip>
+               <Tooltip text="Record your income" />
+            </tooltip>
+         </Button>
+         
+         <!-- Add Expense Button -->
+         <Button fx:id="addExpenseButton" onAction="#handleAddExpense" styleClass="secondary-button" text="Add Expense">
+            <tooltip>
+               <Tooltip text="Record a new expense" />
+            </tooltip>
+         </Button>
+      </HBox>
+   </top>
+     <center>
+      <StackPane>
+         <!-- Dashboard View -->
+         <VBox fx:id="dashboardView" spacing="30.0" visible="true">
+            <padding>
+               <Insets bottom="30.0" left="30.0" right="30.0" top="20.0" />
+            </padding>
+         
+         <!-- Title and Period Selector -->
+         <HBox alignment="CENTER_LEFT" spacing="20.0">
+            <Label text="Expense Tracker" styleClass="page-title">
+               <font>
+                  <Font name="System Bold" size="32.0" />
+               </font>
+            </Label>
+            
+            <!-- Spacer -->
+            <Region HBox.hgrow="ALWAYS" />
+              <!-- Period Selector -->
+            <ComboBox fx:id="periodComboBox" styleClass="period-selector">
+               <tooltip>
+                  <Tooltip text="Select time period for report view" />
+               </tooltip>
+            </ComboBox>
+         </HBox>
+           <!-- Summary Cards -->         <HBox alignment="CENTER" spacing="30.0">            <!-- Income Card -->
+            <VBox alignment="CENTER" styleClass="summary-card">
+               <Label text="INCOME" styleClass="card-title" />
+               <Label fx:id="incomeLabel" text="₹0.00" styleClass="card-amount" />
+               <padding>
+                  <Insets bottom="20.0" left="40.0" right="40.0" top="20.0" />
+               </padding>
+            </VBox>
+              <!-- Expenses Card -->
+            <VBox alignment="CENTER" styleClass="summary-card">
+               <Label text="EXPENSES" styleClass="card-title" />
+               <Label fx:id="expensesLabel" text="₹0.00" styleClass="card-amount" />
+               <padding>
+                  <Insets bottom="20.0" left="40.0" right="40.0" top="20.0" />
+               </padding>
+            </VBox>
+              <!-- Balance Card -->
+            <VBox alignment="CENTER" styleClass="summary-card">
+               <Label text="BALANCE" styleClass="card-title" />
+               <Label fx:id="balanceLabel" text="₹0.00" styleClass="card-amount" />
+               <padding>
+                  <Insets bottom="20.0" left="40.0" right="40.0" top="20.0" />
+               </padding>
+            </VBox>
+         </HBox>           <!-- Charts and Transactions Section -->
+         <HBox spacing="30.0">
+            <!-- Expenses Pie Chart -->
+            <VBox spacing="15.0" HBox.hgrow="ALWAYS">
+               <Label text="Expenses by Category" styleClass="section-title" />
+               <PieChart fx:id="expensesPieChart" styleClass="pie-chart" />
+            </VBox>
+            
+            <!-- Income Pie Chart -->
+            <VBox spacing="15.0" HBox.hgrow="ALWAYS">
+               <Label text="Income by Source" styleClass="section-title" />
+               <PieChart fx:id="incomePieChart" styleClass="pie-chart" />
+            </VBox>
+         </HBox>
+         
+         <!-- Navigation Buttons -->
+         <HBox alignment="CENTER" spacing="20.0">
+            <Button fx:id="viewExpensesBtn" onAction="#handleViewExpenses" styleClass="secondary-button" text="View All Expenses" />
+            <Button fx:id="viewIncomeBtn" onAction="#handleViewIncome" styleClass="secondary-button" text="View All Income" />
+            <padding>
+               <Insets top="10.0" />
+            </padding>
+         </HBox>
+      </VBox>
+      
+      <!-- Full Expenses View -->
+      <VBox fx:id="expensesView" spacing="30.0" visible="false">
+         <padding>
+            <Insets bottom="30.0" left="30.0" right="30.0" top="20.0" />
+         </padding>
+         
+         <HBox alignment="CENTER_LEFT" spacing="20.0">
+            <Label text="All Expenses" styleClass="page-title">
+               <font>
+                  <Font name="System Bold" size="32.0" />
+               </font>
+            </Label>
+         </HBox>
+         
+         <TableView fx:id="recentExpensesTable" styleClass="expenses-table" VBox.vgrow="ALWAYS">
+            <columns>
+               <TableColumn fx:id="dateColumn" prefWidth="150.0" text="DATE" />
+               <TableColumn fx:id="categoryColumn" prefWidth="180.0" text="CATEGORY" />
+               <TableColumn fx:id="descriptionColumn" prefWidth="300.0" text="DESCRIPTION" />
+               <TableColumn fx:id="amountColumn" prefWidth="150.0" text="AMOUNT" />
+            </columns>
+         </TableView>
+         
+         <HBox alignment="CENTER_RIGHT" spacing="15.0">
+            <Button fx:id="removeExpenseBtn" onAction="#handleRemoveExpense" styleClass="secondary-button" text="Remove Selected" />
+         </HBox>
+      </VBox>
+      
+      <!-- Full Income View -->
+      <VBox fx:id="incomeView" spacing="30.0" visible="false">
+         <padding>
+            <Insets bottom="30.0" left="30.0" right="30.0" top="20.0" />
+         </padding>
+         
+         <HBox alignment="CENTER_LEFT" spacing="20.0">
+            <Label text="All Income" styleClass="page-title">
+               <font>
+                  <Font name="System Bold" size="32.0" />
+               </font>
+            </Label>
+         </HBox>
+         
+         <TableView fx:id="recentIncomeTable" styleClass="expenses-table" VBox.vgrow="ALWAYS">
+            <columns>
+               <TableColumn fx:id="incomeDateColumn" prefWidth="200.0" text="DATE" />
+               <TableColumn fx:id="incomeSourceColumn" prefWidth="400.0" text="SOURCE" />
+               <TableColumn fx:id="incomeAmountColumn" prefWidth="200.0" text="AMOUNT" />
+            </columns>
+         </TableView>
+         
+         <HBox alignment="CENTER_RIGHT" spacing="15.0">
+            <Button fx:id="removeIncomeBtn" onAction="#handleRemoveIncome" styleClass="secondary-button" text="Remove Selected" />
+         </HBox>
+      </VBox>
+   </StackPane>
+   </center>
+</BorderPane>
