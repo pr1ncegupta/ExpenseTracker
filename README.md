@@ -16,7 +16,21 @@ A comprehensive, standalone expense management solution built with JavaFX. This 
 - **Period Filtering**: View financial data by Month, Week, or Year
 - **Material UI Design**: Modern, clean interface following Material Design principles
 
-## Screenshots
+## Project Deck
+
+<a href="https://www.canva.com/design/DAGrWCQs1rE/PH0zf6eZjzdyxVaUGvAkCQ/view?utm_content=DAGrWCQs1rE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h753cc574b5" target="_blank">
+  <table>
+    <tr>
+      <td style="vertical-align: top;">
+        <img src="https://www.canva.com/favicon.ico" width="48" height="48" alt="Canva Deck Logo">
+      </td>
+      <td style="padding-left:12px;vertical-align: top;">
+        <b>Expense Tracker – Project Deck</b><br>
+        <span>Click here to view the interactive project deck on Canva.</span>
+      </td>
+    </tr>
+  </table>
+</a>
 
 ### Dashboard
 The main dashboard provides an overview of your finances with income, expenses, and balance cards, along with visual charts and recent expense listings.
